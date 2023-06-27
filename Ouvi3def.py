@@ -1,30 +1,72 @@
 import mysql.connector
+from time import sleep
 class Conexao:
     def __init__(self):
         self.codigo_geral = 0
         self.connection = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='root',
-            database='OuvidoriaSQL',
+            password='dbz123456789',
+            database='OcorrenciaSQL',
 
         )
         self.cursor = self.connection.cursor()
 
-    def registrar_ocorrencia(self):
+    @staticmethod
+    def tempo():
+        for c in range(3):
+            print('*')
+            sleep(0.2)
+
+
+    def listar_ocorrencia(self):
+        sql = 'SELECT * FROM OcorrenciaSQL'
+        self.cursor.execute(sql)
+        lista_ocorrencias = self.cursor.fetchall()
+        print(lista_ocorrencias)
+        return lista_ocorrencias
+
+    def registrar_ocorrencia_elogio(self):
         self.cursor = self.connection.cursor()
         sql = 'INSERT INTO OcorrenciaSQL(tipo, titulo, descricao ) VALUES( %s, %s, %s)'
-        data = ('tipo', input(), input())
+        self.titulo = input('Titulo: ')
+        self.descicao = input('Descricao: ')
+        data = ('Elogio', self.titulo, self.descicao)
         self.codigo_geral += 1
         self.cursor.execute(sql, data)
         self.connection.commit()
         userid = self.cursor.lastrowid
 
-        print(userid,'Ocorrência cadastrada com sucesso! Código:', self.codigo_geral)
+        print('Ocorrência cadastrada com sucesso! Código:',userid)
 
+    def registrar_ocorrencia_reclamacao(self):
+        self.cursor = self.connection.cursor()
+        sql = 'INSERT INTO OcorrenciaSQL(tipo, titulo, descricao ) VALUES( %s, %s, %s)'
+        self.titulo = input('Titulo: ')
+        self.descicao = input('Descricao: ')
+        data = ('Reclamação', self.titulo, self.descicao)
+        self.codigo_geral += 1
+        self.cursor.execute(sql, data)
+        self.connection.commit()
+        userid = self.cursor.lastrowid
+
+        print('Ocorrência cadastrada com sucesso! Código:',userid)
+
+    def registrar_ocorrencia_sugestao(self):
+        self.cursor = self.connection.cursor()
+        sql = 'INSERT INTO OcorrenciaSQL(tipo, titulo, descricao ) VALUES( %s, %s, %s)'
+        self.titulo = input('Titulo: ')
+        self.descicao = input('Descricao: ')
+        data = ('Sugestão', self.titulo, self.descicao)
+        self.codigo_geral += 1
+        self.cursor.execute(sql, data)
+        self.connection.commit()
+        userid = self.cursor.lastrowid
+
+        print('Ocorrência cadastrada com sucesso! Código:',userid)
 
     def deletar_ocorrencia(self,id):
-        sql = 'DELETE from ocorrencias where id=%s'
+        sql = 'DELETE from OcorrenciaSQL where id=%s'
         data = (id,)
 
         self.cursor.execute(sql, data)
@@ -37,6 +79,7 @@ class Conexao:
     def close_conexao(self):
             self.cursor.close()
             self.connection.close()
+
 
 
 
