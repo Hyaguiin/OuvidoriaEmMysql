@@ -14,7 +14,7 @@ class Ouvidoria:
   def listar_ocorrencia(self, tipo_lista):
     pass
   
-  def adicionar_reclamacao(self, titulo, tipo, descricao):
+  def adicionar_ocorrencia(self, titulo, tipo, descricao):
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
 
     if tipo in tipos_cadastraveis:
