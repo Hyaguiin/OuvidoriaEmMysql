@@ -1,5 +1,6 @@
 import CONEXAO
 
+
 class Ouvidoria:
   def __init__(self, titulo, tipo, descricao):
     self.titulo= titulo

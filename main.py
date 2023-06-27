@@ -1,8 +1,8 @@
 # Grupo: Natália, Karle, Luiz Neto, Gigliarly e Hyago
 import time 
-from ouvidoria import Ouvidoria
-
-ouvidoria = Ouvidoria()
+from ouvidoria import Ouvid
+from Ouvi3def import Conexao
+ouvidoria = Conexao()
 condicao = True
 for c in range(3):
   print('.')
@@ -81,6 +81,7 @@ Descricao: {pesquisa[2]}
   if escolha == '5':
     condicao = False
     print('\nVocê escolheu sair do sistema. Para fazer de novo, por gentileza reinicie o programa!')
+    ouvidoria.close_conexao()
     for c in range(2):
       print('.')
       time.sleep(0.2)
