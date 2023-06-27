@@ -10,7 +10,7 @@ class Conexao:
             )
             self.cursor = self.connection.cursor()
 
-        def listar_usuarios(self):
+        def registrar_usuarios(self):
             sql='SELECT * FROM usuarios'
 
             self.cursor.execute(sql)
