@@ -1,3 +1,5 @@
+import CONEXAO
+
 class Ouvidoria:
   def __init__(self, titulo, tipo, descricao):
     self.titulo= titulo
@@ -7,6 +9,7 @@ class Ouvidoria:
 class Ouvidoria:
   def __init__(self):
     self.ocorrencias=[]
+    self.conexao = CONEXAO.Conexao()
 
   def listar_ocorrencia(self, tipo_lista):
     pass
@@ -24,7 +27,7 @@ class Ouvidoria:
       self.ocorrencias.append(
         Ouvidoria(titulo, tipos_cadastraveis[numero_index], descricao)
       )
-    
+
 
   def remover_reclamacao(self, codigo):
     pass

@@ -4,8 +4,8 @@ class Conexao:
         def __init__(self):
             self.connection = mysql.connector.connect(
                 host='localhost',
-                user='root',
-                password='',
+                user='Ouvidoria',
+                password='ouvidoria',
                 database='ouvidoria',
             )
             self.cursor = self.connection.cursor()
