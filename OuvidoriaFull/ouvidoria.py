@@ -1,16 +1,15 @@
-import CONEXAO
-
+from CONEXAO import Conexao
 
 class Ouvidoria:
-  def __init__(self, titulo, tipo, descricao):
-    self.titulo= titulo
-    self.tipo= tipo
-    self.descricao= descricao
+  def __init__(self):
+    self.titulo= ''
+    self.tipo= ''
+    self.descricao= ''
 
 class Ouvidoria:
   def __init__(self):
     self.ocorrencias=[]
-    self.conexao = CONEXAO.Conexao()
+    self.conexao = Conexao()
 
   def listar_ocorrencia(self, tipo_lista):
     pass

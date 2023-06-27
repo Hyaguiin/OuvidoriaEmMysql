@@ -1,13 +1,16 @@
 # Grupo: Natália, Karle, Luiz Neto, Gigliarly e Hyago
 import time 
-from ouvidoria import Ouvid
-from Ouvi3def import Conexao
-ouvidoria = Conexao()
+from ouvidoria import Ouvidoria
+from CONEXAO import Conexao
+
+conexao = Conexao()
+ouvidoria = Ouvidoria()
 condicao = True
+
 for c in range(3):
+  print('\033[1;31m')
   print('.')
   time.sleep(0.2)
-  print('\033[1;31m')
 menu = """.......................................................
 Bem vindo ao menu da Ouvidoria!   
 1) Para listar reclamações
