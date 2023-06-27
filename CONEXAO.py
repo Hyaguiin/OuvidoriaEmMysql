@@ -11,16 +11,16 @@ class Conexao:
             self.cursor = self.connection.cursor()
 
         def registrar_usuarios(self):
-            sql='SELECT * FROM usuarios'
+            sql='SELECT * FROM ocorrencias'
 
             self.cursor.execute(sql)
             lista_usuario= self.cursor.fetchall()
 
             return lista_usuario
 
-        def cadastrar_usuario(self, nome, usuario, senha):
-                sql='INSERT INTO usuarios(nome, usuario, senha) VALUES (%s,%s,%s)'
-                data=(nome, usuario, senha)
+        def cadastrar_usuario(self, titulo, tipo, descricao):
+                sql='INSERT INTO ocorrencias(titulo, tipo, descricao) VALUES (%s,%s,%s)'
+                data=(titulo, tipo, descricao)
 
                 self.cursor.execute(sql, data)
                 self.connection.commit()
@@ -29,19 +29,19 @@ class Conexao:
                 return userId
 
         def deletar_usuario(self, id):
-            sql='DELETE from usuarios where id=%s'
+            sql='DELETE from ocorrencias where id=%s'
             data=(id,)
 
-            self.cursor.execute(sql,data)
+            self.cursor.execute(sql, data)
             self.connection.commit()
 
             recordAffect = self.cursor.rowcount
 
             return recordAffect
 
-        def atualizar_usuario(self, nome, usuario, id):
-            sql = 'UPDATE usuarios set nome=%s, usuario=%s where id=%s'
-            data = (nome, usuario, id)
+        def atualizar_usuario(self, titulo, tipo, descricao):
+            sql = 'UPDATE ocorrencias set titulo=%s, tipo=%s, descricao=%s where id=%s'
+            data = (nome, tipo, usuario, id)
 
             self.cursor.execute(sql, data)
             self.connection.commit()
