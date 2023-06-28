@@ -1,4 +1,4 @@
-# Grupo: Natália, Karle, Luiz Neto, Gigliarly e Hyago
+# Grupo: Natália, Karle, Luiz Neto, Gigliarly, Hyago e Rafaela
 import time 
 from ouvidoria import Ouvidoria
 from CONEXAO import Conexao
@@ -22,7 +22,6 @@ Tipos para cadastro:
 1) Elogio
 2) reclamacao
 3) Sugestao
-4) Todas
 """
 tipos_normais = """1) Elogio
 2) reclamacao
