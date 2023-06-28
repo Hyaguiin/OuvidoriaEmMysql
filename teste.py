@@ -47,8 +47,6 @@ while oco != 5:
         elif tipos == 3:
                 ouvidoria.registrar_ocorrencia_sugestao()
 
-
-
     elif oco == 3:
         delet = int(input('qual o Código da ocorrência? \n-->'))
         ouvidoria.deletar_ocorrencia(delet)

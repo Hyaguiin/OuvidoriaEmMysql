@@ -19,9 +19,12 @@ class Conexao:
             sleep(0.2)
 
 
-    def listar_ocorrencia(self):
-        sql = 'SELECT * FROM OcorrenciaSQL'
-        self.cursor.execute(sql)
+    def listar_ocorrencia(self, tipo_lista='todas'):
+        if tipo_lista=='todas':
+            sql = 'SELECT * FROM OcorrenciaSQL'
+        else:
+            sql = 'SELECT * FROM OcorrenciaSQL where tipo=%s'
+        self.cursor.execute(sql, tipo_lista)
         lista_ocorrencias = self.cursor.fetchall()
         
         return lista_ocorrencias
