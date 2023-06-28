@@ -46,8 +46,18 @@ while oco != 5:
                 ouvidoria.registrar_ocorrencia_reclamacao()
         elif tipos == 3:
                 ouvidoria.registrar_ocorrencia_sugestao()
+
+
+
     elif oco == 3:
         delet = int(input('qual o Código da ocorrência? \n-->'))
         ouvidoria.deletar_ocorrencia(delet)
 
+    elif oco ==4:
+        pesq = int(input('Qual o código da Ocorrência que você deseja pesquisar? \n--->'))
+        ouvidoria.
+
+    elif oco ==5:
+        print('Você escolheu sair do sistema, volte sempre!')
+        ouvidoria.close_conexao()
 
