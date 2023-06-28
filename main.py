@@ -10,10 +10,10 @@ condicao = True
 
 menu = """.......................................................
 Bem vindo ao menu da Ouvidoria!   
-1) Para listar reclamações
-2) Para adicionar reclamações
-3) Para remover reclamações
-4) Para pesquisar reclamações
+1) Para listar ocorrencia
+2) Para adicionar ocorrencia
+3) Para remover ocorrencia
+4) Para pesquisar ocorrencia
 5) Para sair do programa
 ......................................................."""
 print('\033[1;31m')
