@@ -42,12 +42,12 @@ while condicao:
     
     tipo = input(f'{tipos_normais}->')
     resultado = ouvidoria.listar_ocorrencia(tipo)
-    
+
     print(resultado)
   
   if escolha == '2':
     print(tipos_ocorrencia)
-    tipo = input('Nome do tipo da ocorrência: ')
+    tipo = input('Tipo: ')
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
     posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo.lower(), descricao)

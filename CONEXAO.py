@@ -7,11 +7,11 @@ class Conexao:
                 host='localhost',
                 user='Ouvidoria',
                 password='ouvidoria',
-                database='ocorrenciasql',
+                database='Ouvidoria',
             )
             self.cursor = self.connection.cursor()
 
-        def get_ocorrencia(self, tipo_lista='todas'):
+        def get_ocorrencia(self, tipo_lista):
             sql=''
             if tipo_lista=='todas':
                 sql = 'SELECT * FROM ocorrenciasql'

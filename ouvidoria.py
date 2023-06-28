@@ -16,14 +16,15 @@ class Ouvidoria:
     lista_ocorrencias=[]
     mensagem=''
     if tipo_lista in tipos_cadastraveis:
-      lista_ocorrencias = self.conexao.get_ocorrencia(tipo_lista)
-    elif int(tipo_lista) < 4:
-      lista_ocorrencias = self.conexao.get_ocorrencia( tipos_cadastraveis[int(tipo_lista)] )
+      lista_ocorrencias = self.conexao.get_ocorrencia(tipos_cadastraveis.index(tipo_lista))
+    elif int(tipo_lista) <= 4:
+      lista_ocorrencias = self.conexao.get_ocorrencia( int(tipo_lista)-1 )
     
     divisa='-'*20
 
     for linha in lista_ocorrencias:
-      mensagem+= f"{divisa}\nId: {linha[0]}\nTitulo: {linha[1]}\nTipo: {linha[2]}\nDescricao: {linha[3]}\n{divisa}\n"
+      tipo = tipos_cadastraveis[linha[2]]
+      mensagem+= f"{divisa}\nId: {linha[0]}\nTitulo: {linha[1]}\nTipo: {tipo}\nDescricao: {linha[3]}\n{divisa}\n"
 
     return mensagem
   
@@ -31,10 +32,10 @@ class Ouvidoria:
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
 
     if tipo in tipos_cadastraveis:
-      userId = self.conexao.post_ocorrencia(titulo, tipo, descricao)
+      userId = self.conexao.post_ocorrencia(titulo, tipos_cadastraveis.index(tipo), descricao)
       return userId
     elif int(tipo)-1 < len(tipos_cadastraveis):
-      userId = self.conexao.post_ocorrencia(titulo, tipos_cadastraveis[int(tipo)], descricao)
+      userId = self.conexao.post_ocorrencia(titulo, int(tipo), descricao)
       return userId
 
   def remover_ocorrencia(self, codigo):
