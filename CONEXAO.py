@@ -7,7 +7,7 @@ class Conexao:
                 host='localhost',
                 user='Ouvidoria',
                 password='ouvidoria',
-                database='Ouvidoria',
+                database='Ouvidoria'
             )
             self.cursor = self.connection.cursor()
 
@@ -25,7 +25,6 @@ class Conexao:
             return lista_ocorrencias
 
         def post_ocorrencia(self, titulo, tipo, descricao):
-            # Adiciona uma nova linha no banco de dados, com os dados recebidos pela classse
             sql='INSERT INTO ocorrenciasql(titulo, tipo, descricao) VALUES (%s,%s,%s)'
             data=(titulo, tipo, descricao)
 

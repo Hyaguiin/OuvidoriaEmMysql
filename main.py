@@ -1,9 +1,10 @@
 # Grupo: Natália, Karle, Luiz Neto, Gigliarly, Hyago e Rafaela
-import time 
-from ouvidoria import Ouvidoria
-from CONEXAO import Conexao
 
-conexao = Conexao()
+#opcional
+import time
+
+from ouvidoria import Ouvidoria
+
 ouvidoria = Ouvidoria()
 condicao = True
 
@@ -47,25 +48,26 @@ while condicao:
   
   if escolha == '2':
     print(tipos_ocorrencia)
-    tipo = input('Tipo: ')
+    
+    tipo = int(input('Tipo: '))
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
-    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo.lower(), descricao)
+    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo, descricao)
     print(posicao)
   
   if escolha == '3':
+    mensagem = ouvidoria.listar_ocorrencia(4)
+    print(mensagem)
     index = int(input('Index: '))
-    ouvidoria.remover_ocorrencia(index)
+    linha = ouvidoria.remover_ocorrencia(index)
+
+    print(linha)
   
   if escolha == '4':
-    numero_pesquisa = input('Numero de pesquisa: ')
+    numero_pesquisa = int(input('Numero de pesquisa: '))
     pesquisa = ouvidoria.pesquisar_ocorrencia(numero_pesquisa)
-    if pesquisa:
-      print(f"""-----------------
-Titulo: {pesquisa[0]};
-Tipo: {pesquisa[1]};
-Descricao: {pesquisa[2]}
------------------""")
+
+    print(pesquisa)
     
   if escolha == '5':
     condicao = False
