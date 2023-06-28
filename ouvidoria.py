@@ -8,11 +8,13 @@ class Ouvidoria:
 
 class Ouvidoria:
   def __init__(self):
-    self.ocorrencias=[]
+    self.ocorrencias= []
     self.conexao = Conexao()
 
   def listar_ocorrencia(self, tipo_lista):
-    lista_ocorrencias = self.conexao.get_ocorrencia(tipo_lista)
+    tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao', 'todas']
+    if tipo_lista in tipos_cadastraveis:
+      lista_ocorrencias = self.conexao.get_ocorrencia(tipo_lista)
     return lista_ocorrencias
   
   def adicionar_ocorrencia(self, titulo, tipo, descricao):
