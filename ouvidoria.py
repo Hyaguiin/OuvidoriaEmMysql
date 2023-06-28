@@ -32,6 +32,7 @@ class Ouvidoria:
       return userId
 
   def remover_ocorrencia(self, id):
+    
     return self.conexao.delete_ocorrencia(id)
     
   def pesquisar_ocorrencia(self, index):

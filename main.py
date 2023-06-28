@@ -48,10 +48,11 @@ while condicao:
   
   if escolha == '2':
     print(tipos_ocorrencia)
-    tipo = input('Tipo: ')
+    
+    tipo = int(input('Tipo: '))
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
-    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo.lower(), descricao)
+    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo, descricao)
     print(posicao)
   
   if escolha == '3':
