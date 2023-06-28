@@ -76,6 +76,15 @@ class Conexao:
         recordAffect = self.cursor.rowcount
 
         return recordAffect
+    
+    def pesquisar_ocorrencia(self, id):
+        sql = 'SELECT * from OcorrenciaSQL where id=%s'
+        data= (id, )
+
+        self.cursor.execute(sql,data)
+        lista_ocorrencia = self.cursor.fetchall()
+        
+        return lista_ocorrencia
 
     def close_conexao(self):
         self.cursor.close()
