@@ -12,7 +12,7 @@ class Ouvidoria:
     if tipo_lista in tipos_cadastraveis:
       lista_ocorrencias = self.conexao.get_ocorrencia(tipos_cadastraveis.index(tipo_lista))
     elif int(tipo_lista) <= 3:
-      lista_ocorrencias = self.conexao.get_ocorrencia( int(tipo_lista)-1 )
+      lista_ocorrencias = self.conexao.get_ocorrencia( int(tipo_lista) )
     else:
       lista_ocorrencias = self.conexao.get_ocorrencia(4)
     
