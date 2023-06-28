@@ -5,6 +5,7 @@ class Ouvidoria:
     self.ocorrencias= []
     self.conexao = Conexao()
 
+
   def listar_ocorrencia(self, tipo_lista):
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
     self.lista_ocorrencias = []
@@ -38,7 +39,9 @@ class Ouvidoria:
 
     if int(tipo)-1 < len(tipos_cadastraveis):
       userId = self.conexao.post_ocorrencia(titulo, int(tipo), descricao)
-      return userId
+      print()
+      print(f'Ocorência Registrada com sucesso! Código: {userId}')
+
 
   def remover_ocorrencia(self, id):
     self.listar_ocorrencia(4)
