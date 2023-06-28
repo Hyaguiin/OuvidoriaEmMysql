@@ -7,22 +7,23 @@ class Conexao:
                 host='localhost',
                 user='Ouvidoria',
                 password='ouvidoria',
-                database='ouvidoria',
+                database='ocorrenciasql',
             )
             self.cursor = self.connection.cursor()
 
-        def get_ocorrencia(self):
-            # Metodo que ira pegar os dados das ocorrencias registradas
-            sql='SELECT * FROM OcorrenciasSQL'
-
-            self.cursor.execute(sql)
-            lista_ocorrencia= self.cursor.fetchall()
-
-            return lista_ocorrencia
+        def get_ocorrencia(self, tipo_lista='todas'):
+            if tipo_lista=='todas':
+                sql = 'SELECT * FROM ocorrenciasql'
+            else:
+                sql = 'SELECT * FROM ocorrenciasql where tipo=%s'
+            self.cursor.execute(sql, tipo_lista)
+            lista_ocorrencias = self.cursor.fetchall()
+            
+            return lista_ocorrencias
 
         def post_ocorrencia(self, titulo, tipo, descricao):
             # Adiciona uma nova linha no banco de dados, com os dados recebidos pela classse
-            sql='INSERT INTO OcorrenciasSQL(titulo, tipo, descricao) VALUES (%s,%s,%s)'
+            sql='INSERT INTO ocorrenciasql(titulo, tipo, descricao) VALUES (%s,%s,%s)'
             data=(titulo, tipo, descricao)
 
             self.cursor.execute(sql, data)
@@ -32,7 +33,7 @@ class Conexao:
             return userId
         
         def search_ocorrencia(self, id):
-             sql = 'select * from OcorrenciasSQL where id=%s'
+             sql = 'select * from ocorrenciasql where id=%s'
              data = (id, )
 
              self.cursor.execute(sql, data)
@@ -41,7 +42,7 @@ class Conexao:
              return lista_ocorrencia
 
         def delete_ocorrencia(self, id):
-            sql='DELETE from OcorrenciasSQL where id=%s'
+            sql='DELETE from ocorrenciasql where id=%s'
             data=(id,)
 
             self.cursor.execute(sql, data)

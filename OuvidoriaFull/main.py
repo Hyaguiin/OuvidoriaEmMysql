@@ -24,12 +24,12 @@ print('\033[1;31m')
 tipos_ocorrencia = """
 Tipos para cadastro:
 1) Elogio
-2) Reclamacao
+2) ocorrencia
 3) Sugestao
 4) Todas
 """
 tipos_normais = """1) Elogio
-2) Reclamacao
+2) ocorrencia
 3) Sugestao
 4) Todas
 """
@@ -39,9 +39,7 @@ while condicao:
   
   if escolha == '1':
     print('Qual vai ser o tipo da lista?')
-    if not ouvidoria.tipo:
-      print("Lista vazia")
-      continue
+    
     tipo = input(f'{tipos_normais}->')
     resultado = ouvidoria.listar_ocorrencia(tipo)
     print(resultado)
@@ -56,7 +54,7 @@ while condicao:
     tipo = input('Nome do tipo da ocorrência: ')
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
-    posicao = ouvidoria.adicionar_reclamacao(titulo, tipo.lower(), descricao)
+    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo.lower(), descricao)
     print(posicao)
   
   for c in range(3):
@@ -65,7 +63,7 @@ while condicao:
   
   if escolha == '3':
     index = int(input('Index: '))
-    ouvidoria.remover_reclamacao(index)
+    ouvidoria.remover_ocorrencia(index)
   
   for c in range(2):
     print('.')
