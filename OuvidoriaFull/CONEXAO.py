@@ -12,13 +12,16 @@ class Conexao:
             self.cursor = self.connection.cursor()
 
         def get_ocorrencia(self, tipo_lista='todas'):
+            sql=''
             if tipo_lista=='todas':
                 sql = 'SELECT * FROM ocorrenciasql'
+                self.cursor.execute(sql)
             else:
                 sql = 'SELECT * FROM ocorrenciasql where tipo=%s'
-            self.cursor.execute(sql, tipo_lista)
+                data = (tipo_lista, )
+                self.cursor.execute(sql, data)
             lista_ocorrencias = self.cursor.fetchall()
-            
+
             return lista_ocorrencias
 
         def post_ocorrencia(self, titulo, tipo, descricao):
