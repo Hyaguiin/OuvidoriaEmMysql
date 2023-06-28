@@ -13,7 +13,7 @@ class Conexao:
 
         def get_ocorrencia(self, tipo_lista):
             sql=''
-            if tipo_lista=='todas':
+            if tipo_lista==4:
                 sql = 'SELECT * FROM ocorrenciasql'
                 self.cursor.execute(sql)
             else:

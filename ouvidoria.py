@@ -12,13 +12,15 @@ class Ouvidoria:
     self.conexao = Conexao()
 
   def listar_ocorrencia(self, tipo_lista):
-    tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao', 'todas']
+    tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
     lista_ocorrencias=[]
     mensagem=''
     if tipo_lista in tipos_cadastraveis:
       lista_ocorrencias = self.conexao.get_ocorrencia(tipos_cadastraveis.index(tipo_lista))
-    elif int(tipo_lista) <= 4:
+    elif int(tipo_lista) <= 3:
       lista_ocorrencias = self.conexao.get_ocorrencia( int(tipo_lista)-1 )
+    else:
+      lista_ocorrencias = self.conexao.get_ocorrencia(4)
     
     divisa='-'*20
 
@@ -34,7 +36,7 @@ class Ouvidoria:
     if tipo in tipos_cadastraveis:
       userId = self.conexao.post_ocorrencia(titulo, tipos_cadastraveis.index(tipo), descricao)
       return userId
-    elif int(tipo)-1 < len(tipos_cadastraveis):
+    elif int(tipo)-1 <= len(tipos_cadastraveis):
       userId = self.conexao.post_ocorrencia(titulo, int(tipo), descricao)
       return userId
 

@@ -20,12 +20,12 @@ print('\033[1;31m')
 tipos_ocorrencia = """
 Tipos para cadastro:
 1) Elogio
-2) ocorrencia
+2) reclamacao
 3) Sugestao
 4) Todas
 """
 tipos_normais = """1) Elogio
-2) ocorrencia
+2) reclamacao
 3) Sugestao
 4) Todas
 """
@@ -44,6 +44,7 @@ while condicao:
     resultado = ouvidoria.listar_ocorrencia(tipo)
 
     print(resultado)
+    input('Aperte ENTER, pra continuar!!')
   
   if escolha == '2':
     print(tipos_ocorrencia)
