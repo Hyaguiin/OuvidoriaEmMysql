@@ -2,13 +2,6 @@ from CONEXAO import Conexao
 
 class Ouvidoria:
   def __init__(self):
-    self.titulo= ''
-    self.tipo= ''
-    self.descricao= ''
-
-class Ouvidoria:
-  def __init__(self):
-    self.ocorrencias= []
     self.conexao = Conexao()
 
   def listar_ocorrencia(self, tipo_lista):
@@ -24,8 +17,9 @@ class Ouvidoria:
     
     divisa='-'*20
 
+    print(lista_ocorrencias)
     for linha in lista_ocorrencias:
-      tipo = tipos_cadastraveis[linha[2]]
+      tipo = tipos_cadastraveis[linha[2]-1]
       mensagem+= f"{divisa}\nId: {linha[0]}\nTitulo: {linha[1]}\nTipo: {tipo}\nDescricao: {linha[3]}\n{divisa}\n"
 
     return mensagem
