@@ -83,7 +83,10 @@ class Conexao:
 
         self.cursor.execute(sql,data)
         lista_ocorrencia = self.cursor.fetchall()
-        
+        for ele in lista_ocorrencia:
+                print(ele[1])
+                print(f'Titulo: {ele[2]}')
+                print(f'Descrição: {ele[3]}')
         return lista_ocorrencia
 
     def close_conexao(self):

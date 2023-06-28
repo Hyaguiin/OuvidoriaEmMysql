@@ -30,7 +30,7 @@ while oco != 5:
     print(menu)
     oco = int(input('digite qual voce deseja \n-->'))
     if oco ==1:
-        print(op_gerais)
+        print(op_registro)
         lista_ocorrencia = ouvidoria.listar_ocorrencia()
         for item in lista_ocorrencia:
              print(item)
@@ -55,7 +55,7 @@ while oco != 5:
 
     elif oco ==4:
         pesq = int(input('Qual o código da Ocorrência que você deseja pesquisar? \n--->'))
-        ouvidoria.
+        ouvidoria.pesquisar_ocorrencia(pesq)
 
     elif oco ==5:
         print('Você escolheu sair do sistema, volte sempre!')
