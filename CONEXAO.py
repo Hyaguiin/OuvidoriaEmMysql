@@ -7,7 +7,7 @@ class Conexao:
                 host='localhost',
                 user='Ouvidoria',
                 password='ouvidoria',
-                database='Ouvidoria',
+                database='Ouvidoria'
             )
             self.cursor = self.connection.cursor()
 
