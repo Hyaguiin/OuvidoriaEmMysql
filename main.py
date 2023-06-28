@@ -7,10 +7,6 @@ conexao = Conexao()
 ouvidoria = Ouvidoria()
 condicao = True
 
-for c in range(3):
-  print('\033[1;31m')
-  print('.')
-  time.sleep(0.2)
 menu = """.......................................................
 Bem vindo ao menu da Ouvidoria!   
 1) Para listar reclamações
@@ -36,18 +32,18 @@ tipos_normais = """1) Elogio
 while condicao:
   print(menu)
   escolha = input('-> ')
+
+  for c in range(3):
+    print('.')
+    time.sleep(0.2)
   
   if escolha == '1':
     print('Qual vai ser o tipo da lista?')
     
     tipo = input(f'{tipos_normais}->')
     resultado = ouvidoria.listar_ocorrencia(tipo)
+    
     print(resultado)
-  
-  for c in range(3):
-    print('.')
-    time.sleep(0.2)
-  
   
   if escolha == '2':
     print(tipos_ocorrencia)
@@ -57,17 +53,9 @@ while condicao:
     posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo.lower(), descricao)
     print(posicao)
   
-  for c in range(3):
-    print('.')
-    time.sleep(0.2)
-  
   if escolha == '3':
     index = int(input('Index: '))
     ouvidoria.remover_ocorrencia(index)
-  
-  for c in range(2):
-    print('.')
-    time.sleep(0.2)
   
   if escolha == '4':
     numero_pesquisa = input('Numero de pesquisa: ')
@@ -83,7 +71,4 @@ Descricao: {pesquisa[2]}
     condicao = False
     print('\nVocê escolheu sair do sistema. Para fazer de novo, por gentileza reinicie o programa!')
     ouvidoria.close_conexao()
-    for c in range(2):
-      print('.')
-      time.sleep(0.2)
 
