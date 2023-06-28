@@ -1,4 +1,5 @@
 from Ouvi3def import Conexao
+
 ouvidoria = Conexao()
 
 menu = ''''\033[32m'
@@ -22,12 +23,6 @@ op_registro ='''
 2) Reclamações
 3) Sugestões'''
 
-op_gerais = '''
-1) Elogios
-2) Reclamações
-3) Sugestões
-4) Todas'''
-
 
 oco = int
 while oco != 5:
@@ -36,7 +31,9 @@ while oco != 5:
     oco = int(input('digite qual voce deseja \n-->'))
     if oco ==1:
         print(op_gerais)
-        ouvidoria.listar_ocorrencia()
+        lista_ocorrencia = ouvidoria.listar_ocorrencia()
+        for item in lista_ocorrencia:
+             print(item)
 
 
     elif oco == 2:

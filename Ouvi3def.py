@@ -1,5 +1,6 @@
 import mysql.connector
 from time import sleep
+
 class Conexao:
     def __init__(self):
         self.codigo_geral = 0
@@ -8,7 +9,6 @@ class Conexao:
             user='root',
             password='dbz123456789',
             database='OcorrenciaSQL',
-
         )
         self.cursor = self.connection.cursor()
 
@@ -23,7 +23,7 @@ class Conexao:
         sql = 'SELECT * FROM OcorrenciaSQL'
         self.cursor.execute(sql)
         lista_ocorrencias = self.cursor.fetchall()
-        print(lista_ocorrencias)
+        
         return lista_ocorrencias
 
     def registrar_ocorrencia_elogio(self):
@@ -37,7 +37,7 @@ class Conexao:
         self.connection.commit()
         userid = self.cursor.lastrowid
 
-        print('Ocorrência cadastrada com sucesso! Código:',userid)
+        print('Ocorrência cadastrada com sucesso! Código: ',userid)
 
     def registrar_ocorrencia_reclamacao(self):
         self.cursor = self.connection.cursor()
@@ -50,7 +50,7 @@ class Conexao:
         self.connection.commit()
         userid = self.cursor.lastrowid
 
-        print('Ocorrência cadastrada com sucesso! Código:',userid)
+        print('Ocorrência cadastrada com sucesso! Código: ',userid)
 
     def registrar_ocorrencia_sugestao(self):
         self.cursor = self.connection.cursor()
@@ -59,11 +59,12 @@ class Conexao:
         self.descicao = input('Descricao: ')
         data = ('Sugestão', self.titulo, self.descicao)
         self.codigo_geral += 1
+
         self.cursor.execute(sql, data)
         self.connection.commit()
         userid = self.cursor.lastrowid
 
-        print('Ocorrência cadastrada com sucesso! Código:',userid)
+        print('Ocorrência cadastrada com sucesso! Código: ',userid)
 
     def deletar_ocorrencia(self,id):
         sql = 'DELETE from OcorrenciaSQL where id=%s'
@@ -77,10 +78,6 @@ class Conexao:
         return recordAffect
 
     def close_conexao(self):
-            self.cursor.close()
-            self.connection.close()
-
-
-
-
+        self.cursor.close()
+        self.connection.close()
 
