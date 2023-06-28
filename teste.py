@@ -16,12 +16,13 @@ opcoes_tipos = '''
 1) Elogios
 2) Reclamações
 3) Sugestões
-4) Todas'''
+'''
 
 op_registro ='''
 1) Elogios
 2) Reclamações
-3) Sugestões'''
+3) Sugestões
+4) Todos'''
 
 
 oco = int
@@ -31,10 +32,8 @@ while oco != 5:
     oco = int(input('digite qual voce deseja \n-->'))
     if oco ==1:
         print(op_registro)
-        lista_ocorrencia = ouvidoria.listar_ocorrencia()
-        for item in lista_ocorrencia:
-             print(item)
-
+        ouvidoria.pularlinha()
+        ouvidoria.listar_ocorrencia()
 
     elif oco == 2:
         print(op_registro)

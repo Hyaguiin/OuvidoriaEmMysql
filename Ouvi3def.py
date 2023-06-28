@@ -17,14 +17,23 @@ class Conexao:
         for c in range(3):
             print('*')
             sleep(0.2)
+    @staticmethod
+    def pularlinha():
+        print()
+        print()
 
 
     def listar_ocorrencia(self):
         sql = 'SELECT * FROM OcorrenciaSQL'
         self.cursor.execute(sql)
         lista_ocorrencias = self.cursor.fetchall()
-        
-        return lista_ocorrencias
+
+
+        for ele in lista_ocorrencias:
+           print(ele[1])
+           print(f'Titulo: {ele[2]}')
+           print(f'Descrição: {ele[3]}')
+           Conexao.pularlinha()
 
     def registrar_ocorrencia_elogio(self):
         self.cursor = self.connection.cursor()
