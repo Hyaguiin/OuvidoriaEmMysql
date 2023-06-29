@@ -6,6 +6,11 @@ class Ouvidoria:
     self.conexao = Conexao()
 
 
+  # Nesse metodo esse pega o dado que é o tipo da lista,
+  # # e envia os dados para a classe conexao
+  # e retorna uma lista de tuplas, mostrando todos os dados
+  # que estão com o tipo escolhido e retorna uma mensagem
+  # com todas os dados da tabela no banco de dados
   def listar_ocorrencia(self, tipo_lista):
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
     self.lista_ocorrencias = []
@@ -21,7 +26,7 @@ class Ouvidoria:
     divisa = '-' * 20
 
     for linha in lista_ocorrencias:
-      tipo = tipos_cadastraveis[linha[2] - 1]
+      tipo = tipos_cadastraveis[int(linha[2]) - 1]
       mensagem += f"{divisa}\nId: {linha[0]}\nTítulo: {linha[1]}\nTipo: {tipo}\nDescrição: {linha[3]}\n{divisa}\n"
 
     return mensagem
@@ -34,6 +39,8 @@ class Ouvidoria:
 
     return mensagem
   
+  # Pega os dados do parametro (que é fornecido pelo main.py),
+  # entao enviar os dados para para cadastrar no banco de dados
   def adicionar_ocorrencia(self, titulo, tipo, descricao):
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
 
@@ -43,10 +50,12 @@ class Ouvidoria:
       print(f'Ocorência Registrada com sucesso! Código: {userId}')
 
 
+  # Envia os dados recebidos e executa a funcao para excluir uma linha na tabela
   def remover_ocorrencia(self, id):
     self.listar_ocorrencia(4)
     return self.conexao.delete_ocorrencia(id)
     
+  # Aqui ele pesquisa tendo o id, e monta a mensagem para enviar a mensagem no main.py
   def pesquisar_ocorrencia(self, index):
     tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
 
@@ -62,6 +71,7 @@ class Ouvidoria:
       mensagem+= divisao
     return mensagem
 
+  # Fecha a conexao
   def close_conexao(self):
     self.conexao.close_conexao()
       
