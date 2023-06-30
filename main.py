@@ -41,7 +41,11 @@ while condicao:
     print('Qual vai ser o tipo da lista?')
     
     tipo = input(f'{tipos_normais}->')
-    resultado = ouvidoria.listar_ocorrencia(tipo)
+    if tipo.isnumeric():
+      resultado = ouvidoria.listar_ocorrencia(tipo)
+    else:
+      print('codigo invalido!')
+      continue
 
     print(resultado)
     input('Aperte ENTER, pra continuar!!')
@@ -49,7 +53,10 @@ while condicao:
   if escolha == '2':
     print(tipos_ocorrencia)
     
-    tipo = int(input('Tipo: '))
+    tipo = (input('Tipo: '))
+    if not tipo.isnumeric() or not tipo in ['1','2','3']:
+      print('codigo invalido!')
+      continue
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
     posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo, descricao)

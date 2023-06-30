@@ -42,7 +42,6 @@ class Ouvidoria:
       print()
       print(f'Ocorência Registrada com sucesso! Código: {userId}')
 
-
   def remover_ocorrencia(self, id):
     self.listar_ocorrencia(4)
     return self.conexao.delete_ocorrencia(id)
