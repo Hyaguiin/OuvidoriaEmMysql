@@ -35,7 +35,7 @@ class Conexao:
             return userId
         
         def search_ocorrencia(self, id):
-             sql = 'select * from ocorrenciasql where id=%s'
+             sql = 'select * from ocorrenciasql where id=%s' 
              data = (id, )
 
              self.cursor.execute(sql, data)

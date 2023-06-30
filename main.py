@@ -59,7 +59,7 @@ while condicao:
       continue
     titulo = input('Titulo: ')
     descricao = input('Descricao: ')
-    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo, descricao)
+    posicao = ouvidoria.adicionar_ocorrencia(titulo, tipo, descricao) 
 
   
   if escolha == '3':

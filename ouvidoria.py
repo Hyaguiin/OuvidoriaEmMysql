@@ -35,7 +35,7 @@ class Ouvidoria:
     return mensagem
   
   def adicionar_ocorrencia(self, titulo, tipo, descricao):
-    tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao']
+    tipos_cadastraveis = ['elogio', 'reclamacao', 'sugestao'] 
 
     if int(tipo)-1 < len(tipos_cadastraveis):
       userId = self.conexao.post_ocorrencia(titulo, int(tipo), descricao)
